@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal & Insights | Dentique</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <style>
+    .page-hero {
+      padding: 160px 0 80px;
+      background: var(--supporting);
+      text-align: center;
+    }
+    
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 40px;
+    }
+    
+    .blog-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .blog-img {
+      width: 100%;
+      height: 240px;
+      background: var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .blog-card:hover .blog-img img { transform: scale(1.05); }
+    
+    .blog-cat {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .blog-content {
+      padding: 24px;
+    }
+    
+    .blog-meta {
+      display: flex;
+      gap: 16px;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 12px;
+    }
+    
+    .blog-title {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      font-family: var(--font-serif);
+      color: var(--primary);
+      line-height: 1.4;
+    }
+    [data-theme="dark"] .blog-title { color: var(--accent); }
+    
+    .blog-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .read-more {
+      color: var(--primary);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color var(--transition-fast);
+    }
+    [data-theme="dark"] .read-more { color: var(--accent); }
+    .read-more:hover { color: var(--accent); }
+    .read-more svg { transition: transform var(--transition-fast); }
+    .read-more:hover svg { transform: translateX(4px); }
+
+    .category-nav {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 60px;
+      border-bottom: 1px solid var(--border-color);
+      overflow-x: auto;
+      padding-bottom: 16px;
+    }
+    .category-nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+      position: relative;
+    }
+    .category-nav a.active { color: var(--primary); }
+    [data-theme="dark"] .category-nav a.active { color: var(--accent); }
+    .category-nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -17px; left: 0; width: 100%; height: 2px;
+      background: var(--accent);
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  
+  <custom-header></custom-header>
+
+  <main>
+    <section class="page-hero spheres-bg" style="position: relative; z-index: 1;">
+      <div class="sphere"></div><div class="sphere"></div><div class="sphere"></div>
+      <div style="position: absolute; inset: 0; z-index: -1;">
+        <img src="assets/images/hero_blog_1785658539670.png" alt="Blog" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+      </div>
+      <div class="container reveal fade-up">
+        <span class="section-subtitle">Journal & Insights</span>
+        <h1 class="hero-title">The Dentique Journal</h1>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto; font-size: 1.125rem;">Expert advice, lifestyle tips, and the latest innovations in luxury cosmetic dentistry.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        
+        <div class="category-nav reveal fade-up delay-100">
+          <a href="#" class="active">All Articles</a>
+          <a href="#">Dental Tips</a>
+          <a href="#">Oral Hygiene</a>
+          <a href="#">Cosmetic Dentistry</a>
+          <a href="#">Kids Dental Care</a>
+          <a href="#">Smile Lifestyle</a>
+        </div>
+
+        <div class="blog-grid">
+          
+          <!-- Article 1 -->
+          <article class="blog-card reveal fade-up tilt-card glow-card">
+            <div class="tilt-content" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="blog-img">
+                <div class="blog-cat">Cosmetic Dentistry</div>
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=600" alt="Cosmetic Dentistry" style="width:100%; height:100%; object-fit: cover;">
+              </div>
+              <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="blog-meta">
+                  <span>By Dr. Hayes</span>
+                  <span>•</span>
+                  <span>Oct 15, 2026</span>
+                </div>
+                <h3 class="blog-title">Veneers vs. Lumineers: Which is Right for You?</h3>
+                <p class="blog-desc" style="flex: 1;">Discover the key differences between traditional porcelain veneers and ultra-thin Lumineers. Learn which cosmetic solution best fits your aesthetic goals and dental health profile.</p>
+                <a href="#" class="read-more hover-lift">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card reveal fade-up delay-100 tilt-card glow-card">
+            <div class="tilt-content" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="blog-img">
+                <div class="blog-cat">Smile Lifestyle</div>
+                <img src="https://images.unsplash.com/photo-1598331668953-29a32c525f24?auto=format&fit=crop&q=80&w=600" alt="Smile Lifestyle" style="width:100%; height:100%; object-fit: cover;">
+              </div>
+              <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="blog-meta">
+                  <span>By Emma (Concierge)</span>
+                  <span>•</span>
+                  <span>Oct 08, 2026</span>
+                </div>
+                <h3 class="blog-title">Foods to Avoid After Professional Teeth Whitening</h3>
+                <p class="blog-desc" style="flex: 1;">Just had your smile brightened? To maintain that dazzling glow, you need to watch what you eat for the first 48 hours. Here is our comprehensive guide to the "White Diet".</p>
+                <a href="#" class="read-more hover-lift">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card reveal fade-up delay-200 tilt-card glow-card">
+            <div class="tilt-content" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="blog-img">
+                <div class="blog-cat">Dental Tips</div>
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600" alt="Dental Tips" style="width:100%; height:100%; object-fit: cover;">
+              </div>
+              <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="blog-meta">
+                  <span>By Dr. Jenkins</span>
+                  <span>•</span>
+                  <span>Oct 01, 2026</span>
+                </div>
+                <h3 class="blog-title">The Truth About Dental Implants: Busting Myths</h3>
+                <p class="blog-desc" style="flex: 1;">Are dental implants really painful? Do they look fake? We sit down with our Lead Surgeon to bust the most common myths surrounding implantology.</p>
+                <a href="#" class="read-more hover-lift">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="blog-card reveal fade-up delay-100 tilt-card glow-card">
+            <div class="tilt-content" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="blog-img">
+                <div class="blog-cat">Oral Hygiene</div>
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=600" alt="Oral Hygiene" style="width:100%; height:100%; object-fit: cover;">
+              </div>
+              <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="blog-meta">
+                  <span>By Sarah (Hygienist)</span>
+                  <span>•</span>
+                  <span>Sep 22, 2026</span>
+                </div>
+                <h3 class="blog-title">Electric vs. Manual Toothbrushes: The Verdict</h3>
+                <p class="blog-desc" style="flex: 1;">Is it time to upgrade your oral care routine? We break down the clinical evidence behind electric toothbrushes and why our specialists highly recommend them.</p>
+                <a href="#" class="read-more hover-lift">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Article 5 -->
+          <article class="blog-card reveal fade-up delay-200 tilt-card glow-card">
+            <div class="tilt-content" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="blog-img">
+                <div class="blog-cat">Kids Dental Care</div>
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=600" alt="Kids Dental Care" style="width:100%; height:100%; object-fit: cover;">
+              </div>
+              <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="blog-meta">
+                  <span>By Dr. Chen</span>
+                  <span>•</span>
+                  <span>Sep 15, 2026</span>
+                </div>
+                <h3 class="blog-title">When Should Your Child First See an Orthodontist?</h3>
+                <p class="blog-desc" style="flex: 1;">Early intervention can prevent complex orthodontic issues later in life. Learn the key signs that indicate your child might need an early orthodontic evaluation.</p>
+                <a href="#" class="read-more hover-lift">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 6 -->
+          <article class="blog-card reveal fade-up delay-300 tilt-card glow-card">
+            <div class="tilt-content" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="blog-img">
+                <div class="blog-cat">Smile Lifestyle</div>
+                <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=600" alt="Smile Lifestyle" style="width:100%; height:100%; object-fit: cover;">
+              </div>
+              <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="blog-meta">
+                  <span>By Dr. Hayes</span>
+                  <span>•</span>
+                  <span>Sep 05, 2026</span>
+                </div>
+                <h3 class="blog-title">How a Smile Makeover Can Boost Your Confidence</h3>
+                <p class="blog-desc" style="flex: 1;">Your smile is the first thing people notice. Read about the psychological benefits of cosmetic dentistry and how a new smile can transform your personal and professional life.</p>
+                <a href="#" class="read-more hover-lift">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        
+        <div class="text-center mt-5 reveal zoom-in">
+          <button class="btn btn-outline">Load More Articles</button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <custom-footer></custom-footer>
+</body>
+</html>

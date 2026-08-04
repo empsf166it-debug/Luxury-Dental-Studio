@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specialists | Dentique Luxury Dental Studio</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <style>
+    .page-hero {
+      padding: 180px 0 100px;
+      text-align: center;
+      background: var(--supporting);
+      position: relative;
+    }
+    
+    .doc-card {
+      display: flex;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-bottom: 40px;
+      transition: all var(--transition-base);
+    }
+    
+    .doc-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px);
+    }
+    
+    .doc-img {
+      width: 100%; max-width: 400px;
+      background: var(--primary);
+      position: relative;
+    }
+    .doc-img img {
+      width: 100%; max-width: 400px; height: 100%; object-fit: cover;
+    }
+    
+    .doc-content {
+      padding: 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .doc-stats {
+      display: flex;
+      gap: 32px;
+      margin: 24px 0;
+      padding: 24px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      font-family: var(--font-serif);
+    }
+    [data-theme="dark"] .stat-value { color: var(--accent); }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .doc-awards {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .award-badge {
+      padding: 8px 16px;
+      background: rgba(201, 168, 106, 0.1);
+      color: var(--accent-dark);
+      border-radius: var(--radius-pill);
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    [data-theme="dark"] .award-badge { color: var(--accent); }
+
+    .doc-card.reversed {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 1024px) {
+      .doc-card, .doc-card.reversed { flex-direction: column; }
+      .doc-img { width: 100%; height: 400px; }
+    }
+    @media (max-width: 768px) {
+      .doc-stats { flex-wrap: wrap; gap: 16px; }
+      .doc-awards { flex-wrap: wrap; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  
+  <custom-header></custom-header>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="page-hero mesh-bg" style="position: relative; z-index: 1;">
+      <div style="position: absolute; inset: 0; z-index: -1;">
+        <img src="assets/images/hero_specialists_1785658517005.png" alt="Specialists" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+      </div>
+      <div class="container reveal fade-up">
+        <span class="section-subtitle">World-Class Expertise</span>
+        <h1 class="hero-title">Meet Our Specialists</h1>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto; font-size: 1.125rem;">Our board-certified masters of dentistry combine decades of experience with a passion for aesthetic perfection.</p>
+      </div>
+    </section>
+
+    <!-- 2. Doctors List -->
+    <section class="section">
+      <div class="container">
+        
+        <!-- Doctor 1 -->
+        <div class="doc-card reveal fade-up tilt-card glow-card">
+          <div class="tilt-content" style="display: flex; flex-direction: inherit; gap: inherit;">
+            <div class="doc-img hover-lift" style="overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600" alt="Dr. Jonathan Hayes" style="width:100%; height:100%; object-fit: cover;">
+            </div>
+          <div class="doc-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 8px; font-family: var(--font-serif); color: var(--primary);">Dr. Jonathan Hayes</h2>
+            <p class="text-accent" style="font-weight: 500; font-size: 1.125rem; margin-bottom: 16px;">Founder & Lead Cosmetic Dentist</p>
+            
+            <p class="text-muted mb-4">Dr. Hayes is an internationally renowned cosmetic dentist specializing in Digital Smile Design and full mouth rehabilitation. He believes that every smile is a unique piece of art.</p>
+            
+            <div class="doc-stats">
+              <div class="stat-item">
+                <span class="stat-value">DDS, MS</span>
+                <span class="stat-label">Qualification</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">18+</span>
+                <span class="stat-label">Years Exp.</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">3,500+</span>
+                <span class="stat-label">Smiles Designed</span>
+              </div>
+            </div>
+            
+            <div class="doc-awards">
+              <span class="award-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> Top Cosmetic Dentist 2025</span>
+              <span class="award-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> DSD Master</span>
+            </div>
+            
+            <div>
+              <a href="contact.html" class="btn btn-primary">Book with Dr. Hayes</a>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Doctor 2 -->
+        <div class="doc-card reversed reveal fade-up delay-100 tilt-card glow-card">
+          <div class="tilt-content" style="display: flex; flex-direction: inherit; gap: inherit;">
+            <div class="doc-img hover-lift" style="overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600" alt="Dr. Sarah Jenkins" style="width:100%; height:100%; object-fit: cover;">
+            </div>
+          <div class="doc-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 8px; font-family: var(--font-serif); color: var(--primary);">Dr. Sarah Jenkins</h2>
+            <p class="text-accent" style="font-weight: 500; font-size: 1.125rem; margin-bottom: 16px;">Implantologist & Oral Surgeon</p>
+            
+            <p class="text-muted mb-4">Dr. Jenkins specializes in complex implantology and bone regeneration. Using cutting-edge 3D guided surgery, she provides minimally invasive treatments with faster recovery times.</p>
+            
+            <div class="doc-stats">
+              <div class="stat-item">
+                <span class="stat-value">DMD, FACS</span>
+                <span class="stat-label">Qualification</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">12+</span>
+                <span class="stat-label">Years Exp.</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">2,000+</span>
+                <span class="stat-label">Implants Placed</span>
+              </div>
+            </div>
+            
+            <div class="doc-awards">
+              <span class="award-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> Board Certified Surgeon</span>
+            </div>
+            
+            <div>
+              <a href="contact.html" class="btn btn-primary">Book with Dr. Jenkins</a>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Doctor 3 -->
+        <div class="doc-card reveal fade-up delay-200 tilt-card glow-card">
+          <div class="tilt-content" style="display: flex; flex-direction: inherit; gap: inherit;">
+            <div class="doc-img hover-lift" style="overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600" alt="Dr. Michael Chen" style="width:100%; height:100%; object-fit: cover;">
+            </div>
+          <div class="doc-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 8px; font-family: var(--font-serif); color: var(--primary);">Dr. Michael Chen</h2>
+            <p class="text-accent" style="font-weight: 500; font-size: 1.125rem; margin-bottom: 16px;">Orthodontist</p>
+            
+            <p class="text-muted mb-4">A Diamond Plus Invisalign Provider, Dr. Chen focuses on aesthetic alignment. He believes in harmonizing the bite and the smile to achieve both functional and cosmetic excellence.</p>
+            
+            <div class="doc-stats">
+              <div class="stat-item">
+                <span class="stat-value">DDS, MS</span>
+                <span class="stat-label">Qualification</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">10+</span>
+                <span class="stat-label">Years Exp.</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">1,500+</span>
+                <span class="stat-label">Invisalign Cases</span>
+              </div>
+            </div>
+            
+            <div class="doc-awards">
+              <span class="award-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> Diamond Plus Provider</span>
+            </div>
+            
+            <div>
+              <a href="contact.html" class="btn btn-primary">Book with Dr. Chen</a>
+            </div>
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <custom-footer></custom-footer>
+</body>
+</html>

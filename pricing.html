@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Memberships | Dentique</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <style>
+    .page-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      background: var(--bg-main);
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      align-items: stretch;
+    }
+    
+    .pricing-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+      position: relative;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .pricing-card.premium {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--secondary);
+      border: none;
+      transform: scale(1.05);
+      box-shadow: var(--shadow-emerald);
+    }
+    
+    .pricing-card.premium:hover {
+      transform: scale(1.05) translateY(-10px);
+    }
+    
+    .price-value {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: var(--font-serif);
+      margin: 20px 0;
+      color: var(--primary);
+    }
+    .pricing-card.premium .price-value { color: var(--accent); }
+    [data-theme="dark"] .price-value { color: var(--accent); }
+    
+    .price-features {
+      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+    
+    .price-features li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--accent);
+    }
+    
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 20px 24px;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: rgba(15, 118, 110, 0.02);
+    }
+    
+    .faq-answer {
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: var(--text-muted);
+    }
+    
+    .faq-item.active .faq-answer {
+      padding: 20px 24px;
+      max-height: 300px;
+    }
+    
+    .faq-item.active .faq-question svg {
+      transform: rotate(180deg);
+    }
+    
+    .plan-badge {
+      position: absolute;
+      top: -15px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-card.premium { transform: scale(1); }
+      .pricing-card.premium:hover { transform: translateY(-10px); }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  
+  <custom-header></custom-header>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="page-hero aurora-bg" style="position: relative; z-index: 1;">
+      <div style="position: absolute; inset: 0; z-index: -1;">
+        <img src="assets/images/hero_pricing_1785658528052.png" alt="Pricing" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+      </div>
+      <div class="container reveal fade-up">
+        <span class="section-subtitle">Transparent Value</span>
+        <h1 class="hero-title">Exclusive Memberships</h1>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto; font-size: 1.125rem;">Invest in your oral health with our premium membership tiers, designed to provide comprehensive care and exceptional value.</p>
+      </div>
+    </section>
+
+    <!-- 2. Memberships / Packages -->
+    <section class="section pt-0">
+      <div class="container">
+        <div class="pricing-grid">
+          
+          <!-- Basic Plan -->
+          <div class="pricing-card reveal fade-right tilt-card glow-card">
+            <div class="tilt-content" style="display: flex; flex-direction: column; height: 100%;">
+              <h3 style="font-size: 1.5rem;">Silver Wellness</h3>
+              <p class="text-muted mt-2">Essential preventive care for healthy smiles.</p>
+              <div class="price-value">$49<span style="font-size: 1rem; color: var(--text-muted); font-weight: 400; font-family: var(--font-sans);">/mo</span></div>
+              <ul class="price-features" style="flex: 1;">
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 2 Annual Comprehensive Exams</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 2 Professional Cleanings</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Annual Routine X-Rays</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 10% Off Restorative Treatments</li>
+              </ul>
+              <a href="contact.html" class="btn btn-outline hover-lift" style="width: 100%;">Join Silver</a>
+            </div>
+          </div>
+          
+          <!-- Premium Plan -->
+          <div class="pricing-card premium reveal zoom-in tilt-card glow-card" style="position: relative;">
+            <div class="plan-badge">Most Popular</div>
+            <div class="tilt-content" style="display: flex; flex-direction: column; height: 100%;">
+              <h3 style="font-size: 1.5rem; color: var(--secondary);">Gold Signature</h3>
+              <p style="color: rgba(252,251,248,0.8); margin-top: 8px;">Comprehensive care with cosmetic perks.</p>
+              <div class="price-value">$99<span style="font-size: 1rem; color: rgba(252,251,248,0.8); font-weight: 400; font-family: var(--font-sans);">/mo</span></div>
+              <ul class="price-features" style="flex: 1;">
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Silver</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 1 Free Laser Whitening Session</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 3D Digital Smile Scan</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 15% Off All Cosmetic Treatments</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Booking</li>
+              </ul>
+              <a href="contact.html" class="btn btn-primary hover-lift" style="width: 100%; background: var(--secondary); color: var(--primary); box-shadow: none;">Join Gold</a>
+            </div>
+          </div>
+
+          <!-- VIP Plan -->
+          <div class="pricing-card reveal fade-left tilt-card glow-card">
+            <div class="tilt-content" style="display: flex; flex-direction: column; height: 100%;">
+              <h3 style="font-size: 1.5rem;">Platinum VIP</h3>
+              <p class="text-muted mt-2">The ultimate luxury dental experience.</p>
+              <div class="price-value">$199<span style="font-size: 1rem; color: var(--text-muted); font-weight: 400; font-family: var(--font-sans);">/mo</span></div>
+              <ul class="price-features" style="flex: 1;">
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Exams & X-Rays</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 4 Periodontal Cleanings</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Whitening Touch-ups</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 20% Off All Treatments</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 24/7 Concierge Access</li>
+              </ul>
+              <a href="contact.html" class="btn btn-outline hover-lift" style="width: 100%;">Join Platinum</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. EMI & Insurance -->
+    <section class="section" style="background: rgba(15, 118, 110, 0.03);">
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+          <!-- EMI -->
+          <div class="tilt-card glass-panel reveal fade-right" style="flex: 1; min-width: 300px; background: var(--bg-card); padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+            <div class="tilt-content">
+              <div style="width: 60px; height: 60px; background: var(--supporting); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); margin-bottom: 24px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              </div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 16px;">0% Interest EMI Plans</h3>
+              <p class="text-muted mb-4">We believe financial constraints shouldn't stand in the way of a perfect smile. We offer customized in-house financing and partner with CareCredit for 0% interest monthly payment plans up to 24 months.</p>
+              <a href="#" class="text-accent hover-lift" style="font-weight: 600; display: inline-block;">Calculate Your EMI &rarr;</a>
+            </div>
+          </div>
+          
+          <!-- Insurance -->
+          <div class="tilt-card glass-panel reveal fade-left" style="flex: 1; min-width: 300px; background: var(--bg-card); padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+            <div class="tilt-content">
+              <div style="width: 60px; height: 60px; background: var(--supporting); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); margin-bottom: 24px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 16px;">Insurance accepted</h3>
+              <p class="text-muted mb-4">We are a fee-for-service luxury clinic, meaning we work with all major PPO insurance plans as an out-of-network provider. Our concierge team will file all claims on your behalf to maximize your reimbursement.</p>
+              <a href="#" class="text-accent hover-lift" style="font-weight: 600; display: inline-block;">View Accepted Insurances &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FAQ -->
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+        <h2 class="section-title text-center reveal fade-up mb-5">Frequently Asked Questions</h2>
+        
+        <div class="faq-container reveal fade-up delay-100">
+          <div class="faq-item">
+            <div class="faq-question">
+              Is cosmetic dentistry covered by insurance?
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+              <p>Most purely cosmetic procedures (like veneers or teeth whitening) are not covered by dental insurance. However, if a procedure has a restorative necessity (such as a crown), a portion of the cost may be covered. We will help you navigate your benefits.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              Can I cancel my membership at any time?
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+              <p>Our memberships require a minimum 12-month commitment to ensure you receive the full cycle of preventive care. After the first year, you can cancel with a 30-day notice.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              Do I need a membership to book a consultation?
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+              <p>No, our clinic is open to all patients. Memberships are an optional benefit for those looking for structured, discounted ongoing care.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              How do the EMI plans work?
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+              <p>We perform a soft credit check that does not affect your score. Based on the treatment cost, we can break down the payment into 6, 12, or 24 equal monthly installments with 0% interest.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => i.classList.remove('active'));
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

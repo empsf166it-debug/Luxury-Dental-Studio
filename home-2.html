@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dentique | Modern Dental Innovation</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <style>
+    /* Home 2 Split Hero */
+    .split-hero {
+      display: flex;
+      min-height: 100vh;
+      padding-top: 80px; /* offset header */
+    }
+    
+    .split-hero-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 0 5% 0 10%;
+      background-color: var(--bg-main);
+    }
+    
+    .split-hero-image {
+      flex: 1;
+      background: var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .split-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      width: 2px; height: 100%;
+      background: var(--border-color);
+    }
+    .timeline-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+    .timeline-content {
+      width: 45%;
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px; height: 24px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 4px solid var(--bg-main);
+    }
+
+    .tech-card {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: all var(--transition-base);
+    }
+    .tech-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-emerald); }
+    
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .award-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .award-item:hover { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .split-hero { flex-direction: column; }
+      .timeline::before { left: 20px; }
+      .timeline-item { flex-direction: column !important; align-items: flex-end; }
+      .timeline-content { width: 85%; }
+      .timeline-dot { left: 20px; transform: translateX(-50%); }
+      .awards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  
+  <custom-header></custom-header>
+
+  <main>
+    <!-- 1. Split Hero -->
+    <section class="split-hero spheres-bg">
+      <div class="sphere"></div><div class="sphere"></div><div class="sphere"></div>
+      <div class="split-hero-content" style="z-index: 1;">
+        <div class="reveal fade-right">
+          <span class="section-subtitle">Innovation Meets Luxury</span>
+          <h1 class="hero-title" style="font-size: 4rem; color: var(--primary);">The Future of<br>Dentistry is Here</h1>
+          <p class="hero-desc text-muted mb-4">Precision technology combined with artistic mastery to design the smile you deserve.</p>
+          <a href="#digital-smile" class="btn btn-primary">Discover DSD</a>
+        </div>
+      </div>
+      <div class="split-hero-image reveal fade-left">
+        <!-- Add a placeholder or gradient if image fails -->
+        <div style="position: absolute; inset: 0; background: linear-gradient(45deg, var(--primary), var(--primary-dark)); opacity: 0.5;"></div>
+        <img src="assets/images/hero_home2_1785658471519.png" alt="Dental Technology" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+    </section>
+
+    <!-- 2. Digital Smile Design -->
+    <section id="digital-smile" class="section">
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 60px; align-items: center;">
+          <div style="flex: 1; min-width: 300px;" class="reveal zoom-in">
+            <div class="hover-lift" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: 20px; box-shadow: var(--shadow-lg);">
+              <div style="height: 400px; background: var(--dark); border-radius: var(--radius-md); overflow: hidden; display: flex; align-items: center; justify-content: center; color: var(--secondary);">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="3D Scan Visualization" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+              </div>
+            </div>
+          </div>
+          <div style="flex: 1; min-width: 300px;" class="reveal fade-left">
+            <span class="section-subtitle">Digital Smile Design</span>
+            <h2 class="section-title">See Your Smile Before We Begin</h2>
+            <p class="text-muted mb-4">Using advanced 3D scanning and facial harmony analysis, we digitally design your perfect smile. You can see and approve the final result before any physical treatment starts.</p>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 12px; display: flex; gap: 12px;"><span style="color:var(--accent);">✓</span> 100% Predictable Results</li>
+              <li style="margin-bottom: 12px; display: flex; gap: 12px;"><span style="color:var(--accent);">✓</span> Facial Harmony Integration</li>
+              <li style="margin-bottom: 12px; display: flex; gap: 12px;"><span style="color:var(--accent);">✓</span> Custom Aesthetic Planning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Treatment Journey Timeline -->
+    <section class="section" style="background: rgba(15, 118, 110, 0.02);">
+      <div class="container">
+        <div class="text-center mb-5 reveal fade-up">
+          <span class="section-subtitle">The Process</span>
+          <h2 class="section-title">Your Smile Journey</h2>
+        </div>
+        
+        <div class="timeline stagger-list">
+          <div class="timeline-item tilt-card">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content tilt-content glow-card">
+              <h3 class="mb-2">1. The Consultation</h3>
+              <p class="text-muted">A private session in our luxury suite to discuss your goals and perform a comprehensive 3D digital scan.</p>
+            </div>
+          </div>
+          <div class="timeline-item tilt-card">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content tilt-content glow-card">
+              <h3 class="mb-2">2. Digital Design</h3>
+              <p class="text-muted">Our master technicians design your new smile, taking into account your facial features and preferences.</p>
+            </div>
+          </div>
+          <div class="timeline-item tilt-card">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content tilt-content glow-card">
+              <h3 class="mb-2">3. The Test Drive</h3>
+              <p class="text-muted">Try on a temporary mockup of your new smile. We make adjustments until you are completely satisfied.</p>
+            </div>
+          </div>
+          <div class="timeline-item tilt-card">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content tilt-content glow-card">
+              <h3 class="mb-2">4. The Final Reveal</h3>
+              <p class="text-muted">Your custom-crafted permanent restorations are placed, unveiling your flawless, confident smile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Technology Showcase -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5 reveal fade-up">
+          <h2 class="section-title">State-of-the-Art Technology</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+          <div class="tech-card reveal fade-up delay-100 tilt-card glass-panel" style="background: var(--bg-card);">
+            <div class="tilt-content">
+              <div style="width: 60px; height: 60px; margin: 0 auto 20px; color: var(--primary);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
+              </div>
+              <h3>3D CBCT Scanners</h3>
+              <p class="text-muted mt-2">Ultra-precise imaging for flawless implant planning and root canal treatments.</p>
+            </div>
+          </div>
+          <div class="tech-card reveal fade-up delay-200 tilt-card glass-panel" style="background: var(--bg-card);">
+            <div class="tilt-content">
+              <div style="width: 60px; height: 60px; margin: 0 auto 20px; color: var(--primary);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h3>Laser Dentistry</h3>
+              <p class="text-muted mt-2">Minimally invasive, painless gum treatments and accelerated healing.</p>
+            </div>
+          </div>
+          <div class="tech-card reveal fade-up delay-300 tilt-card glass-panel" style="background: var(--bg-card);">
+            <div class="tilt-content">
+              <div style="width: 60px; height: 60px; margin: 0 auto 20px; color: var(--primary);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+              <h3>In-House Lab</h3>
+              <p class="text-muted mt-2">Milling beautiful ceramic crowns and veneers while you wait.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Awards -->
+    <section class="section" style="border-top: 1px solid var(--border-color);">
+      <div class="container text-center reveal fade-up">
+        <h3 class="mb-5" style="color: var(--text-muted); font-family: var(--font-sans); font-weight: 500;">Recognized for Excellence</h3>
+        <div class="awards-grid">
+          <div class="award-item">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <p class="mt-2 text-muted" style="font-size: 0.875rem;">Best Cosmetic Clinic 2025</p>
+          </div>
+          <div class="award-item">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <p class="mt-2 text-muted" style="font-size: 0.875rem;">5-Star Patient Rating</p>
+          </div>
+          <div class="award-item">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <p class="mt-2 text-muted" style="font-size: 0.875rem;">Certified DSD Masters</p>
+          </div>
+          <div class="award-item">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 15C15.866 15 19 11.866 19 8C19 4.13401 15.866 1 12 1C8.13401 1 5 4.13401 5 8C5 11.866 8.13401 15 12 15Z"/><path d="M8.21 13.89L7 23L12 20L17 23L15.79 13.88"/></svg>
+            <p class="mt-2 text-muted" style="font-size: 0.875rem;">Excellence in Dentistry</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Consultation CTA -->
+    <section class="section" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--secondary); text-align: center;">
+      <div class="container reveal zoom-in">
+        <h2 class="section-title" style="color: var(--secondary);">Begin Your Transformation</h2>
+        <p class="mb-5" style="max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9;">Take the first step towards the smile you've always dreamed of. Schedule your private digital smile design consultation today.</p>
+        <a href="contact.html" class="btn" style="background: var(--secondary); color: var(--primary);">Schedule Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <custom-footer></custom-footer>
+</body>
+</html>

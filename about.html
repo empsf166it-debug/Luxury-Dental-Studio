@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Dentique | Luxury Dental Studio</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <style>
+    .page-hero {
+      padding: 150px 0 80px;
+      background: var(--supporting);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    [data-theme="dark"] .page-hero { background: var(--bg-card); }
+    
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .mission-card {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mission-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 4px;
+      background: var(--accent);
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    
+    .team-card {
+      text-align: center;
+    }
+    
+    .team-img-wrapper {
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto 24px;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--supporting);
+      position: relative;
+    }
+    
+    .team-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    
+    .team-card:hover .team-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .clinic-gallery {
+      display: grid; 
+      grid-template-columns: repeat(12, 1fr); 
+      gap: 24px;
+    }
+    .clinic-gallery-main {
+      grid-column: span 8; 
+      height: 400px; 
+      background: var(--supporting); 
+      border-radius: var(--radius-lg); 
+      overflow: hidden; 
+      box-shadow: var(--shadow-md);
+    }
+    .clinic-gallery-side {
+      grid-column: span 4; 
+      height: 400px; 
+      background: var(--primary-light); 
+      border-radius: var(--radius-lg); 
+      overflow: hidden; 
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .clinic-gallery { grid-template-columns: 1fr; }
+      .clinic-gallery-main, .clinic-gallery-side { grid-column: span 1; height: 300px; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  
+  <custom-header></custom-header>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="page-hero aurora-bg">
+      <div class="container reveal fade-up" style="position: relative; z-index: 1;">
+        <h1 class="hero-title" style="font-size: 3.5rem;">The Dentique Story</h1>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto; font-size: 1.125rem;">Redefining the dental experience through luxury, art, and precision.</p>
+      </div>
+    </section>
+
+    <!-- 2. Our Story -->
+    <section class="section">
+      <div class="container">
+        <div class="story-grid">
+          <div class="reveal fade-right tilt-card">
+            <div class="tilt-content hover-lift" style="border-radius: var(--radius-lg); aspect-ratio: 4/5; position: relative; overflow: hidden; box-shadow: var(--shadow-lg);">
+               <img src="assets/images/hero_about_1785658484792.png" alt="Dentique Story" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+          <div class="reveal fade-left">
+            <span class="section-subtitle">Our Genesis</span>
+            <h2 class="section-title">Born from a Vision of Excellence</h2>
+            <p class="text-muted mb-4">Founded in 2015, Dentique was created with a singular mission: to eliminate the anxiety traditionally associated with dental visits and replace it with a feeling of indulgence and luxury.</p>
+            <p class="text-muted mb-4">We believe that a trip to the dentist should feel like a visit to a high-end spa. Every detail of our clinic—from the ambient lighting to the custom-scented air—has been meticulously designed to ensure your absolute comfort.</p>
+            <div style="display: flex; gap: 40px; margin-top: 40px;">
+              <div>
+                <h3 style="color: var(--accent); font-size: 2.5rem; margin-bottom: 8px;">10+</h3>
+                <p class="text-muted">Years of Excellence</p>
+              </div>
+              <div>
+                <h3 style="color: var(--accent); font-size: 2.5rem; margin-bottom: 8px;">5K+</h3>
+                <p class="text-muted">Smiles Transformed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Mission & Vision -->
+    <section class="section" style="background: rgba(201, 168, 106, 0.05);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+          <div class="mission-card reveal fade-up tilt-card glow-card" style="position: relative; z-index: 1;">
+            <div class="tilt-content">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" style="margin: 0 auto 20px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <h2 class="mb-3" style="font-size: 2rem;">Our Mission</h2>
+              <p class="text-muted" style="max-width: 700px; margin: 0 auto; font-size: 1.05rem; line-height: 1.7;">"To craft confident, radiant smiles using world-class technology, while providing an unparalleled luxury experience that makes every patient feel truly valued and cared for."</p>
+            </div>
+          </div>
+          <div class="mission-card reveal fade-up delay-100 tilt-card glow-card" style="position: relative; z-index: 1;">
+            <div class="tilt-content">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" style="margin: 0 auto 20px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <h2 class="mb-3" style="font-size: 2rem;">Our Vision</h2>
+              <p class="text-muted" style="max-width: 700px; margin: 0 auto; font-size: 1.05rem; line-height: 1.7;">"To become the global benchmark for luxury dentistry, blending cutting-edge innovation with exquisite artistry to redefine the standard of oral care."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Luxury Clinic -->
+    <section class="section">
+      <div class="container text-center">
+        <span class="section-subtitle">The Environment</span>
+        <h2 class="section-title reveal fade-up">A Sanctuary of Wellness</h2>
+        <p class="text-muted mb-5 reveal fade-up delay-100" style="max-width: 600px; margin-left: auto; margin-right: auto;">Step into our world of calm. Designed by award-winning architects, our clinic features private luxury suites, noise-canceling headphones, and a VIP concierge team.</p>
+        
+        <div class="clinic-gallery">
+          <div class="clinic-gallery-main hover-lift reveal fade-up delay-200">
+             <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200" alt="Clinic Interior" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="clinic-gallery-side hover-lift reveal fade-up delay-300">
+             <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" alt="Clinic Detail" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Team -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5 reveal fade-up">
+          <span class="section-subtitle">The Masters</span>
+          <h2 class="section-title">Meet Our Specialists</h2>
+        </div>
+        
+        <div class="team-grid">
+          <div class="team-card reveal fade-up delay-100">
+            <div class="team-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800" alt="Dr. Jonathan Hayes">
+            </div>
+            <h3>Dr. Jonathan Hayes</h3>
+            <p class="text-accent mb-2">Founder & Lead Cosmetic Dentist</p>
+            <p class="text-muted" style="font-size: 0.875rem;">Master of Digital Smile Design with 15 years of experience in full mouth rehabilitation.</p>
+          </div>
+          <div class="team-card reveal fade-up delay-200">
+            <div class="team-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" alt="Dr. Sarah Jenkins">
+            </div>
+            <h3>Dr. Sarah Jenkins</h3>
+            <p class="text-accent mb-2">Implantologist & Oral Surgeon</p>
+            <p class="text-muted" style="font-size: 0.875rem;">Specializes in minimally invasive implant placement and bone grafting techniques.</p>
+          </div>
+          <div class="team-card reveal fade-up delay-300">
+            <div class="team-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800" alt="Dr. Michael Chen">
+            </div>
+            <h3>Dr. Michael Chen</h3>
+            <p class="text-accent mb-2">Orthodontist</p>
+            <p class="text-muted" style="font-size: 0.875rem;">Diamond Provider of Invisalign, focusing on aesthetic alignment for adults.</p>
+          </div>
+        </div>
+        
+        <div class="text-center mt-5 reveal zoom-in delay-400">
+          <a href="specialists.html" class="btn btn-outline">View All Specialists</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <custom-footer></custom-footer>
+</body>
+</html>

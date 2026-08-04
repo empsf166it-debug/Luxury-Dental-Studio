@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smile Gallery | Dentique</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <style>
+    .page-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      background: var(--bg-main);
+      position: relative;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%; height: 600px; max-width: 600px;
+      background: radial-gradient(circle, rgba(201, 168, 106, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-auto-rows: 200px;
+      gap: 16px;
+    }
+    .masonry-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--supporting);
+      position: relative;
+    }
+    .masonry-item:nth-child(2) { grid-row: span 2; }
+    .masonry-item:nth-child(5) { grid-row: span 2; }
+    .masonry-item:nth-child(7) { grid-column: span 2; }
+    
+    .masonry-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .masonry-item:hover img { transform: scale(1.1); }
+    
+    .video-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: var(--dark);
+      cursor: pointer;
+    }
+    
+    .play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px; height: 80px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      transition: all var(--transition-base);
+    }
+    .video-card:hover .play-btn { background: var(--accent); transform: translate(-50%, -50%) scale(1.1); }
+    
+    .case-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+    .case-img-split {
+      display: flex;
+      height: 250px;
+    }
+    .case-img-split > div {
+      flex: 1;
+      position: relative;
+      background: var(--supporting);
+    }
+    .case-img-split > div:first-child::after {
+      content: 'Before';
+      position: absolute; bottom: 10px; left: 10px;
+      background: rgba(0,0,0,0.6); color: #fff;
+      padding: 4px 12px; border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+    }
+    .case-img-split > div:last-child::after {
+      content: 'After';
+      position: absolute; bottom: 10px; right: 10px;
+      background: rgba(15, 118, 110, 0.8); color: #fff;
+      padding: 4px 12px; border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  
+  <custom-header></custom-header>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="page-hero spheres-bg" style="position: relative; z-index: 1;">
+      <div class="sphere"></div><div class="sphere"></div><div class="sphere"></div>
+      <div style="position: absolute; inset: 0; z-index: -1;">
+        <img src="assets/images/hero_gallery_1785658496820.png" alt="Smile Gallery" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+      </div>
+      <div class="container relative z-10 reveal fade-up">
+        <span class="section-subtitle">Portfolio of Perfection</span>
+        <h1 class="hero-title">Smile Gallery</h1>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto; font-size: 1.125rem;">Witness the transformative power of luxury cosmetic dentistry through our curated collection of patient success stories.</p>
+      </div>
+    </section>
+
+    <!-- 2. Before & After (Redesigned Cards) -->
+    <section class="section" style="background: rgba(15, 118, 110, 0.02);">
+      <div class="container text-center">
+        <h2 class="section-title reveal fade-up">Dramatic Transformations</h2>
+        <p class="text-muted mb-5 reveal fade-up delay-100">See the real results from our luxury dental studio.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+          
+          <!-- Transformation 1 -->
+          <div class="reveal fade-up delay-200 glow-card hover-lift" style="background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); text-align: left;">
+            <div style="display: flex; height: 280px;">
+              <div style="flex: 1; background-image: url('assets/images/smile_transformation.png'); background-size: cover; background-position: left center; filter: sepia(0.4) brightness(0.9); position: relative; border-right: 2px solid var(--bg-main);">
+                <span style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.6); color: white; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: bold;">Before</span>
+              </div>
+              <div style="flex: 1; background-image: url('assets/images/smile_transformation.png'); background-size: cover; background-position: right center; position: relative;">
+                <span style="position: absolute; bottom: 12px; right: 12px; background: var(--primary); color: white; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: bold;">After</span>
+              </div>
+            </div>
+            <div style="padding: 24px;">
+              <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Porcelain Veneers</h3>
+              <p class="text-muted text-sm">A complete smile makeover correcting discoloration and minor gaps for a flawless finish.</p>
+            </div>
+          </div>
+
+          <!-- Transformation 2 -->
+          <div class="reveal fade-up delay-300 glow-card hover-lift" style="background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); text-align: left;">
+            <div style="display: flex; height: 280px;">
+              <div style="flex: 1; background-image: url('assets/images/hero_gallery_1785658496820.png'); background-size: cover; background-position: center; filter: sepia(0.4) brightness(0.9); position: relative; border-right: 2px solid var(--bg-main);">
+                <span style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.6); color: white; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: bold;">Before</span>
+              </div>
+              <div style="flex: 1; background-image: url('assets/images/hero_gallery_1785658496820.png'); background-size: cover; background-position: center; position: relative;">
+                <span style="position: absolute; bottom: 12px; right: 12px; background: var(--primary); color: white; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: bold;">After</span>
+              </div>
+            </div>
+            <div style="padding: 24px;">
+              <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Invisalign & Whitening</h3>
+              <p class="text-muted text-sm">Straightened alignment combined with our laser whitening treatment for a radiant, natural look.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Smile Cases -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title text-center reveal fade-up mb-5">Featured Cases</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 32px;">
+          
+          <div class="case-card reveal fade-up delay-100 tilt-card glow-card">
+            <div class="tilt-content">
+              <div style="height: 250px; background-image: url('https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;"></div>
+              <div style="padding: 24px;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Full Arch Rehabilitation</h3>
+                <p class="text-muted text-sm mb-3">Treatments: Dental Implants, Porcelain Crowns</p>
+                <p style="font-size: 0.95rem;">A complete restoration of both upper and lower arches to correct severe wear and restore optimal function and aesthetics.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-card reveal fade-up delay-200 tilt-card glow-card">
+            <div class="tilt-content">
+              <div style="height: 250px; background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;"></div>
+              <div style="padding: 24px;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Cosmetic Smile Makeover</h3>
+                <p class="text-muted text-sm mb-3">Treatments: 8 Custom Veneers, Laser Whitening</p>
+                <p style="font-size: 0.95rem;">Closing gaps and correcting discoloration to create a perfectly symmetrical, Hollywood-style smile.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-card reveal fade-up delay-300 tilt-card glow-card">
+            <div class="tilt-content">
+              <div style="height: 250px; background-image: url('https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;"></div>
+              <div style="padding: 24px;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Invisalign & Alignment</h3>
+                <p class="text-muted text-sm mb-3">Treatments: Invisalign Clear Aligners (14 months)</p>
+                <p style="font-size: 0.95rem;">Correction of severe crowding and bite misalignment without the use of traditional metal braces.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Video Gallery -->
+    <section class="section" style="background: var(--bg-card);">
+      <div class="container">
+        <h2 class="section-title text-center reveal fade-up mb-5">Patient Testimonials</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+          <div class="video-card reveal fade-right delay-100" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center; position: relative;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); border-radius: inherit;"></div>
+            <div class="play-btn">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div style="position: absolute; bottom: 20px; left: 20px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+              <h3 style="font-family: var(--font-sans);">Sarah's Journey</h3>
+              <p style="font-size: 0.875rem; opacity: 0.8;">Veneers & Whitening</p>
+            </div>
+          </div>
+          <div class="video-card reveal fade-left delay-200" style="background-image: url('https://images.unsplash.com/photo-1598331668953-29a32c525f24?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center; position: relative;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); border-radius: inherit;"></div>
+            <div class="play-btn">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div style="position: absolute; bottom: 20px; left: 20px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+              <h3 style="font-family: var(--font-sans);">Mark's Transformation</h3>
+              <p style="font-size: 0.875rem; opacity: 0.8;">Full Mouth Implants</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Image Masonry -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title text-center reveal fade-up mb-5">Moments of Joy</h2>
+        <div class="masonry-grid reveal zoom-in">
+          <div class="masonry-item hover-lift"><div style="width:100%; height:100%; background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=400'); background-size: cover; background-position: center;"></div></div>
+          <div class="masonry-item hover-lift"><div style="width:100%; height:100%; background-image: url('https://images.unsplash.com/photo-1598331668953-29a32c525f24?auto=format&fit=crop&q=80&w=400'); background-size: cover; background-position: center;"></div></div>
+          <div class="masonry-item hover-lift"><div style="width:100%; height:100%; background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=400'); background-size: cover; background-position: center;"></div></div>
+          <div class="masonry-item hover-lift"><div style="width:100%; height:100%; background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=400'); background-size: cover; background-position: center;"></div></div>
+          <div class="masonry-item hover-lift"><div style="width:100%; height:100%; background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=400'); background-size: cover; background-position: center;"></div></div>
+          <div class="masonry-item hover-lift"><div style="width:100%; height:100%; background-image: url('https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=400'); background-size: cover; background-position: center;"></div></div>
+          <div class="masonry-item hover-lift"><div style="width:100%; height:100%; background-image: url('https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&q=80&w=400'); background-size: cover; background-position: center;"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CTA -->
+    <section class="section text-center" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--secondary);">
+      <div class="container reveal fade-up">
+        <h2 class="section-title" style="color: var(--secondary);">Be Our Next Success Story</h2>
+        <a href="book.html" class="btn btn-primary mt-4" style="background: var(--accent); color: #fff; box-shadow: none;">Book Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <custom-footer></custom-footer>
+</body>
+</html>
