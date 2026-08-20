@@ -94,6 +94,11 @@
       background: var(--supporting);
       position: relative;
     }
+    
+    @media (max-width: 768px) {
+      .contact-split { margin-top: -40px; }
+      .contact-info-panel, .contact-form-panel { padding: 40px 24px; }
+    }
   </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
@@ -106,7 +111,8 @@
     <section class="page-hero spheres-bg" style="padding: 180px 0 160px; position: relative; z-index: 1; text-align: center;">
       <div class="sphere"></div><div class="sphere"></div><div class="sphere"></div>
       <div style="position: absolute; inset: 0; z-index: -1;">
-        <img src="assets/images/hero_contact_1785658561137.png" alt="Contact Us" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+        <img src="assets/images/hero_contact_1785658561137.png" alt="Contact Us" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; inset: 0; background: var(--bg-main); opacity: 0.85;"></div>
       </div>
       <div class="container reveal fade-up">
         <h1 class="hero-title" style="font-size: clamp(2rem, 8vw, 3.5rem); color: var(--text-main);">Get in Touch</h1>
@@ -174,7 +180,7 @@
           
           <!-- Booking Form -->
           <div class="contact-form-panel tilt-card glow-card" style="background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-            <div class="tilt-content" style="padding: 40px;">
+            <div class="tilt-content">
               <h2 class="section-title mb-2">Book a Consultation</h2>
               <p class="text-muted mb-4">Please fill out the form below and our concierge will contact you to confirm your appointment time.</p>
               
@@ -233,12 +239,7 @@
       <div class="container reveal zoom-in">
         <h2 class="section-title text-center mb-5">Visit Our Studio</h2>
         <div class="map-container">
-          <!-- Real Image for Studio Exterior -->
-          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200" alt="Clinic Exterior" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
-          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.4); color: white;">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span style="margin-left:12px; font-weight:500; font-size: 1.25rem;">Beverly Hills Studio</span>
-          </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105658.64757608826!2d-118.49079541571217!3d34.09214736630801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bc04d6d147ab%3A0xd6c7c379fd081ed1!2sBeverly%20Hills%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0; position: absolute; inset: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
