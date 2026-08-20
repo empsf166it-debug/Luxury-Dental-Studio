@@ -33,17 +33,19 @@
       object-fit: cover;
       position: absolute;
       inset: 0;
+      z-index: 1;
     }
     
     .book-info-overlay {
-      position: absolute;
-      inset: 0;
+      position: relative;
+      z-index: 2;
       background: linear-gradient(135deg, rgba(21, 147, 137, 0.9), rgba(15, 118, 110, 0.95));
       padding: 60px 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       color: #FCFBF8;
+      min-height: 100%;
     }
     
     .book-form-panel {
@@ -134,7 +136,7 @@
             <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="Clinic Experience">
             <div class="book-info-overlay tilt-card">
               <div class="tilt-content">
-                <h2 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 40px;">The Dentique Difference</h2>
+                <h2 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 40px; color: #FCFBF8;">The Dentique Difference</h2>
                 
                 <div class="info-item-book hover-lift">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -169,7 +171,7 @@
             <p class="text-muted mb-4">Please provide your preferred appointment details below.</p>
             
             <form onsubmit="event.preventDefault(); alert('Consultation Request Submitted successfully!');">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                 <div class="form-group">
                   <label>First Name</label>
                   <input type="text" class="form-control" placeholder="Jane" required>
@@ -180,7 +182,7 @@
                 </div>
               </div>
               
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                 <div class="form-group">
                   <label>Email Address</label>
                   <input type="email" class="form-control" placeholder="jane@example.com" required>
@@ -204,7 +206,7 @@
                 </select>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                 <div class="form-group">
                   <label>Preferred Date</label>
                   <input type="date" class="form-control" required>

@@ -25,7 +25,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: 0;
     }
     
     .hero-bg img {
@@ -40,6 +40,7 @@
       left: 0;
       width: 100%;
       height: 100%;
+      z-index: 1;
       background: linear-gradient(to right, rgba(15, 118, 110, 0.9) 0%, rgba(15, 118, 110, 0.4) 50%, rgba(252, 251, 248, 0) 100%);
     }
     
@@ -209,11 +210,52 @@
       display: flex;
       gap: 16px;
     }
+    
+    .hero-buttons .btn-outline {
+      color: var(--secondary);
+      border-color: var(--secondary);
+    }
+    
+    [data-theme="dark"] .hero-buttons .btn-outline {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    
+    [data-theme="dark"] .hero-buttons .btn-outline:hover {
+      background: var(--accent);
+      color: var(--bg-main);
+    }
+
+    .floating-appointment-card p {
+      color: var(--text-main) !important;
+    }
 
     @media (max-width: 1024px) {
-      .hero-title { font-size: 3.5rem; }
       .floating-appointment-card { display: none; }
       .bento-item.featured, .bento-item.standard { grid-column: span 6; }
+    }
+
+    .bento-grid {
+      grid-auto-rows: 1fr;
+    }
+    .bento-item {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .bento-item .tilt-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    @media (max-width: 768px) {
+      .bento-grid {
+        display: grid !important;
+        grid-template-columns: 1fr;
+      }
+      .bento-item.featured, .bento-item.standard { 
+        grid-column: span 1; 
+      }
     }
 
     @media (max-width: 767px) {
@@ -235,7 +277,7 @@
 
   <main>
     <!-- Section 1: Luxury Hero -->
-    <section class="hero mesh-bg">
+    <section class="hero">
       <div class="hero-bg">
         <img src="assets/images/hero.png" alt="Dentique Luxury Clinic">
       </div>
@@ -243,11 +285,11 @@
       
       <div class="container relative z-10 h-full flex items-center">
         <div class="hero-content reveal fade-up">
-          <h1 class="hero-title">Crafting<br>Confident Smiles</h1>
+          <h1 class="hero-title" style="font-size: clamp(2rem, 8vw, 4.5rem); color: var(--text-main);">Crafting<br>Confident Smiles</h1>
           <p class="hero-desc">Experience world-class luxury cosmetic dentistry designed for your comfort and aesthetic perfection.</p>
           <div class="hero-buttons">
             <a href="book.html" class="btn btn-primary">Book Consultation</a>
-            <a href="treatments.html" class="btn btn-outline" style="color: var(--secondary); border-color: var(--secondary);">Explore Treatments</a>
+            <a href="treatments.html" class="btn btn-outline">Explore Treatments</a>
           </div>
         </div>
       </div>
@@ -286,7 +328,7 @@
         
         <div class="bento-grid">
           <!-- Item 1: Featured -->
-          <div class="bento-item featured reveal zoom-in tilt-card">
+          <div class="bento-item featured reveal zoom-in tilt-card glow-card">
             <div class="tilt-content">
               <div class="treatment-icon hover-lift">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
@@ -295,7 +337,6 @@
               <p class="text-muted mt-2" style="max-width: 300px;">A comprehensive, customized approach to transform your smile using a combination of premium treatments.</p>
               <a href="treatments.html" class="text-accent mt-4" style="display:inline-block; font-weight:600;">Learn More &rarr;</a>
             </div>
-            <img src="https://images.unsplash.com/photo-1598331668953-29a32c525f24?auto=format&fit=crop&q=80&w=600" alt="Smile Makeover" class="bento-img" style="border-radius: var(--radius-md);">
           </div>
           
           <!-- Item 2 -->
@@ -413,13 +454,13 @@
         <span class="section-subtitle" style="color: var(--accent-light);">Patient Stories</span>
         <h2 class="section-title reveal fade-up" style="color: var(--secondary);">What Our Clients Say</h2>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 40px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 32px; margin-top: 40px;">
           <!-- Card 1 -->
-          <div class="reveal fade-up tilt-card" style="background: rgba(252,251,248,0.05); padding: 40px; border-radius: var(--radius-lg); border: 1px solid rgba(252,251,248,0.1); text-align: left; display: flex; flex-direction: column; height: 100%;">
+          <div class="reveal fade-up tilt-card" style="flex: 1 1 320px; max-width: 400px; background: rgba(252,251,248,0.05); padding: 40px; border-radius: var(--radius-lg); border: 1px solid rgba(252,251,248,0.1); text-align: left; display: flex; flex-direction: column;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--accent)" stroke="none" style="margin-bottom: 24px;"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             <p style="font-family: var(--font-serif); font-size: 1.125rem; font-style: italic; margin-bottom: 32px; line-height: 1.6; color: var(--secondary); flex-grow: 1;">"The experience at Dentique is nothing short of a 5-star hotel. The team is incredibly professional, and my veneers look so natural. I finally have the confidence to smile in every photo."</p>
             <div style="display: flex; align-items: center; gap: 16px;">
-              <div style="width: 48px; height: 48px; border-radius: 50%; background-color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: var(--primary);">E</div>
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150" alt="Emma Roberts" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);">
               <div>
                 <h4 style="color: var(--secondary); margin-bottom: 4px; font-size: 1rem;">Emma Roberts</h4>
                 <span style="font-size: 0.875rem; color: rgba(252,251,248,0.7);">Smile Makeover</span>
@@ -428,11 +469,11 @@
           </div>
 
           <!-- Card 2 -->
-          <div class="reveal fade-up delay-100 tilt-card" style="background: rgba(252,251,248,0.05); padding: 40px; border-radius: var(--radius-lg); border: 1px solid rgba(252,251,248,0.1); text-align: left; display: flex; flex-direction: column; height: 100%;">
+          <div class="reveal fade-up delay-100 tilt-card" style="flex: 1 1 320px; max-width: 400px; background: rgba(252,251,248,0.05); padding: 40px; border-radius: var(--radius-lg); border: 1px solid rgba(252,251,248,0.1); text-align: left; display: flex; flex-direction: column;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--accent)" stroke="none" style="margin-bottom: 24px;"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             <p style="font-family: var(--font-serif); font-size: 1.125rem; font-style: italic; margin-bottom: 32px; line-height: 1.6; color: var(--secondary); flex-grow: 1;">"Absolutely phenomenal care. They used the latest 3D imaging for my implants and the procedure was completely painless. The luxurious environment makes you forget you're at a dentist."</p>
             <div style="display: flex; align-items: center; gap: 16px;">
-              <div style="width: 48px; height: 48px; border-radius: 50%; background-color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: var(--primary);">J</div>
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" alt="James Chen" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);">
               <div>
                 <h4 style="color: var(--secondary); margin-bottom: 4px; font-size: 1rem;">James Chen</h4>
                 <span style="font-size: 0.875rem; color: rgba(252,251,248,0.7);">Dental Implants</span>
@@ -441,11 +482,11 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="reveal fade-up delay-200 tilt-card" style="background: rgba(252,251,248,0.05); padding: 40px; border-radius: var(--radius-lg); border: 1px solid rgba(252,251,248,0.1); text-align: left; display: flex; flex-direction: column; height: 100%;">
+          <div class="reveal fade-up delay-200 tilt-card" style="flex: 1 1 320px; max-width: 400px; background: rgba(252,251,248,0.05); padding: 40px; border-radius: var(--radius-lg); border: 1px solid rgba(252,251,248,0.1); text-align: left; display: flex; flex-direction: column;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--accent)" stroke="none" style="margin-bottom: 24px;"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             <p style="font-family: var(--font-serif); font-size: 1.125rem; font-style: italic; margin-bottom: 32px; line-height: 1.6; color: var(--secondary); flex-grow: 1;">"Dentique transformed my smile before my wedding. The laser whitening was efficient and comfortable. I can't stop smiling now. Highly recommend their bespoke services."</p>
             <div style="display: flex; align-items: center; gap: 16px;">
-              <div style="width: 48px; height: 48px; border-radius: 50%; background-color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: var(--primary);">S</div>
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150" alt="Sarah Williams" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);">
               <div>
                 <h4 style="color: var(--secondary); margin-bottom: 4px; font-size: 1rem;">Sarah Williams</h4>
                 <span style="font-size: 0.875rem; color: rgba(252,251,248,0.7);">Laser Whitening</span>

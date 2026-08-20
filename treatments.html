@@ -104,6 +104,8 @@
       align-items: center;
       gap: 8px;
       transition: color var(--transition-fast);
+      position: relative;
+      z-index: 1;
     }
 
     [data-theme="dark"] .treatment-link {
@@ -111,6 +113,14 @@
     }
 
     .treatment-link:hover {
+      color: var(--accent);
+    }
+
+    .treatment-card.glow-card:hover .treatment-link {
+      color: #fff;
+    }
+
+    .treatment-card.glow-card:hover .treatment-link:hover {
       color: var(--accent);
     }
 
@@ -147,6 +157,28 @@
       background: var(--primary);
       color: #fff;
       border-color: var(--primary);
+    }
+
+    .process-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--supporting);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+      border: 1px solid transparent;
+      transition: all var(--transition-base);
+    }
+
+    [data-theme="dark"] .process-circle {
+      background: var(--bg-main);
+      border-color: var(--border-color);
+      color: var(--accent);
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -450,23 +482,17 @@
         <h2 class="section-title reveal fade-up">Our Approach to Care</h2>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 60px;">
           <div style="flex: 1; min-width: 250px; max-width: 300px;" class="reveal fade-up delay-100">
-            <div
-              style="width: 80px; height: 80px; border-radius: 50%; background: var(--supporting); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 2rem; font-weight: bold; color: var(--primary);">
-              1</div>
+            <div class="process-circle">1</div>
             <h3>Discovery</h3>
             <p class="text-muted mt-2">Comprehensive diagnostics using 3D scanners.</p>
           </div>
           <div style="flex: 1; min-width: 250px; max-width: 300px;" class="reveal fade-up delay-200">
-            <div
-              style="width: 80px; height: 80px; border-radius: 50%; background: var(--supporting); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 2rem; font-weight: bold; color: var(--primary);">
-              2</div>
+            <div class="process-circle">2</div>
             <h3>Design</h3>
             <p class="text-muted mt-2">Custom treatment plan prioritizing your goals.</p>
           </div>
           <div style="flex: 1; min-width: 250px; max-width: 300px;" class="reveal fade-up delay-300">
-            <div
-              style="width: 80px; height: 80px; border-radius: 50%; background: var(--supporting); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 2rem; font-weight: bold; color: var(--primary);">
-              3</div>
+            <div class="process-circle">3</div>
             <h3>Delivery</h3>
             <p class="text-muted mt-2">Flawless execution in our luxury suites.</p>
           </div>
@@ -477,29 +503,28 @@
     <!-- 4. Warranty & Quality -->
     <section class="section">
       <div class="container">
-        <div
-          style="background: linear-gradient(135deg, var(--bg-card), var(--supporting)); padding: 60px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); display: flex; flex-wrap: wrap; align-items: center; gap: 40px;"
-          class="reveal zoom-in">
-          <div style="flex: 1; min-width: 300px;">
+        <div style="background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-color); display: flex; flex-wrap: wrap; overflow: hidden; box-shadow: var(--shadow-md);" class="reveal zoom-in">
+          <div style="flex: 1; min-width: 250px; position: relative;">
+            <img src="https://images.unsplash.com/photo-1598331668953-29a32c525f24?auto=format&fit=crop&q=80&w=800" alt="Quality Guarantee" style="width: 100%; height: 100%; object-fit: cover; min-height: 400px;">
+            <div style="position: absolute; bottom: 30px; right: 30px; background: var(--bg-card); border-radius: 50%; width: 140px; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); z-index: 2;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" style="margin-bottom: 8px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span style="font-size: 0.75rem; font-weight: bold; color: var(--primary); text-transform: uppercase; text-align: center; line-height: 1.2; letter-spacing: 1px;">Certified<br>Excellence</span>
+            </div>
+          </div>
+          <div style="flex: 1; min-width: 250px; padding: clamp(24px, 6vw, 60px); display: flex; flex-direction: column; justify-content: center;">
             <h2 class="section-title mb-4">The Dentique Guarantee</h2>
-            <p class="text-muted mb-4">We use only the highest grade biocompatible materials sourced globally. Every
-              ceramic restoration is crafted with microscopic precision in our in-house lab.</p>
+            <p class="text-muted mb-4">We use only the highest grade biocompatible materials sourced globally. Every ceramic restoration is crafted with microscopic precision in our in-house lab.</p>
             <ul style="list-style: none; padding: 0;">
-              <li style="margin-bottom: 12px; display: flex; gap: 12px;"><span style="color:var(--accent);">✓</span>
+              <li style="margin-bottom: 16px; display: flex; gap: 12px; align-items: center;"><span style="color:var(--accent); font-weight: bold;">✓</span>
                 10-Year Warranty on Implants</li>
-              <li style="margin-bottom: 12px; display: flex; gap: 12px;"><span style="color:var(--accent);">✓</span>
+              <li style="margin-bottom: 16px; display: flex; gap: 12px; align-items: center;"><span style="color:var(--accent); font-weight: bold;">✓</span>
                 5-Year Warranty on Veneers</li>
-              <li style="margin-bottom: 12px; display: flex; gap: 12px;"><span style="color:var(--accent);">✓</span>
+              <li style="margin-bottom: 16px; display: flex; gap: 12px; align-items: center;"><span style="color:var(--accent); font-weight: bold;">✓</span>
                 Lifetime Maintenance Program</li>
             </ul>
-          </div>
-          <div style="flex: 1; min-width: 300px; text-align: center;">
-            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1"
-              style="margin: 0 auto; opacity: 0.8;">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
-            <h3 class="mt-4 text-primary">Certified Excellence</h3>
           </div>
         </div>
       </div>

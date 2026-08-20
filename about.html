@@ -31,16 +31,16 @@
       border-radius: var(--radius-lg);
       text-align: center;
       border: 1px solid var(--border-color);
+      border-top: 4px solid var(--accent);
       box-shadow: var(--shadow-md);
       position: relative;
       overflow: hidden;
     }
     
-    .mission-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 4px;
-      background: var(--accent);
+    .mission-card:hover svg {
+      stroke: #fff !important;
+      position: relative;
+      z-index: 1;
     }
     
     .team-grid {
@@ -112,7 +112,10 @@
 
   <main>
     <!-- 1. Hero -->
-    <section class="page-hero aurora-bg">
+    <section class="page-hero aurora-bg" style="position: relative; z-index: 1;">
+      <div style="position: absolute; inset: 0; z-index: -1;">
+        <img src="assets/images/hero_about_1785658484792.png" alt="About Dentique" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+      </div>
       <div class="container reveal fade-up" style="position: relative; z-index: 1;">
         <h1 class="hero-title" style="font-size: 3.5rem;">The Dentique Story</h1>
         <p class="text-muted" style="max-width: 600px; margin: 0 auto; font-size: 1.125rem;">Redefining the dental experience through luxury, art, and precision.</p>
@@ -155,14 +158,14 @@
           <div class="mission-card reveal fade-up tilt-card glow-card" style="position: relative; z-index: 1;">
             <div class="tilt-content">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" style="margin: 0 auto 20px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <h2 class="mb-3" style="font-size: 2rem;">Our Mission</h2>
+              <h3 class="mb-3" style="font-size: 2rem;">Our Mission</h3>
               <p class="text-muted" style="max-width: 700px; margin: 0 auto; font-size: 1.05rem; line-height: 1.7;">"To craft confident, radiant smiles using world-class technology, while providing an unparalleled luxury experience that makes every patient feel truly valued and cared for."</p>
             </div>
           </div>
           <div class="mission-card reveal fade-up delay-100 tilt-card glow-card" style="position: relative; z-index: 1;">
             <div class="tilt-content">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" style="margin: 0 auto 20px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-              <h2 class="mb-3" style="font-size: 2rem;">Our Vision</h2>
+              <h3 class="mb-3" style="font-size: 2rem;">Our Vision</h3>
               <p class="text-muted" style="max-width: 700px; margin: 0 auto; font-size: 1.05rem; line-height: 1.7;">"To become the global benchmark for luxury dentistry, blending cutting-edge innovation with exquisite artistry to redefine the standard of oral care."</p>
             </div>
           </div>
