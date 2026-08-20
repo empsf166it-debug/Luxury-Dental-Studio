@@ -752,8 +752,7 @@ img {
   color: #FCFBF8;
 }
 .aurora-bg h1, .aurora-bg h2, .aurora-bg p, .aurora-bg .text-muted,
-.mesh-bg h1, .mesh-bg h2, .mesh-bg p, .mesh-bg .text-muted,
-.spheres-bg h1, .spheres-bg h2, .spheres-bg p, .spheres-bg .text-muted {
+.mesh-bg h1, .mesh-bg h2, .mesh-bg p, .mesh-bg .text-muted {
   color: #FCFBF8 !important;
 }
 .aurora-bg::before {
